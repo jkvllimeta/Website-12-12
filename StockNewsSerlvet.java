@@ -35,28 +35,29 @@ public class StockNewsServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+
+    
+    /*
+        The Servlet takes the file name sent via AJAX GET Request and retrieves the corresponding file
+        from Google Cloud. The file is downloaded and converted into a String, using the download method
+        from a previous Lab Activity, and subsequently sent back as the Servlet Response.
+    */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        System.out.println("Working path is +" + System.getProperty("user.dir"));
+
         
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println(request.getParameter("filename"));
         
         PrintWriter out = response.getWriter();
         out.print(download(bucket_name, request.getParameter("filename")));
-        System.out.println(download(bucket_name, request.getParameter("filename")));
         }
     
-    
-    
+   
     public static String download(String bucket, String object) throws IOException{
 
     Storage storage = StorageOptions.newBuilder().setCredentials(ServiceAccountCredentials.
             fromStream(new FileInputStream("C:\\Users\\Joseph\\Documents\\mdx\\CCE3110\\Mini Project 1\\StockNewsSite\\NewsNStocks\\src\\main\\java\\com\\mycompany\\newsnstocks\\gcloud-credentials.json"))).build().getService();
 
-// Upload a blob to the newly created bucket
         BlobId blobId = BlobId.of(bucket, object);
         byte[] content = storage.readAllBytes(blobId);
         String contentString = new String(content, UTF_8);
