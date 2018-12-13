@@ -6,15 +6,18 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>StockNews</title>
+        <title>Daily Stock Informer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Google Fonts Library Link-->
         <link href="https://fonts.googleapis.com/css?family=Anton|Oswald|Roboto+Mono" rel="stylesheet">
         <link rel="stylesheet" href="stockNewsCSS.css">
     </head>
+    
+    
     <body>
         
-        <div><h1>Stock News</h1></div>
+        <div><h1>Daily Stock Informer</h1></div>
         
         <div id="stockButtonBox">
             <button id="showStocks" class="primaryBtn"><span>View Stocks</span></button>
@@ -29,13 +32,14 @@ and open the template in the editor.
             <button id="headlineButton2" class="primaryBtn"><span>View Washington Post Headline</span></button>
         </div>
         
+        <!--The following divs are the containers for the dynamically-generated stocks and headlines-->
         <div id="stockList"></div>
         <div id="headlineList"></div>
         <div id="headlineList2"></div>
 
         
-        
-        
         <script src="mainJS.js"></script>
     </body>
+    
+    
 </html>
